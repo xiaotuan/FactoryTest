@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">FactoryTest</string>
+
+    <string name="auto_test_title">Auto Test</string>
+    <string name="system_test_title">System Test</string>
+    <string name="screen_test_title">Screen Test</string>
+    <string name="ring_test_title">Ring Test</string>
+    <string name="Telephony_test_title">Telephony Test</string>
+    <string name="annex_test_title">Annex Test</string>
+    <string name="wireless_test_title">Wireless Test</string>
+    <string name="sensor_test_title">Sensor Test</string>
+    <string name="camera_test_title">Camera Test</string>
+    <string name="key_test_title">Key Test</string>
+    <string name="test_report_title">Test Report</string>
+    
 </resources>
