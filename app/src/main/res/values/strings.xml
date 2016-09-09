@@ -5,12 +5,51 @@
     <string name="system_test_title">System Test</string>
     <string name="screen_test_title">Screen Test</string>
     <string name="ring_test_title">Ring Test</string>
-    <string name="Telephony_test_title">Telephony Test</string>
+    <string name="telephony_test_title">Telephony Test</string>
     <string name="annex_test_title">Annex Test</string>
     <string name="wireless_test_title">Wireless Test</string>
     <string name="sensor_test_title">Sensor Test</string>
     <string name="camera_test_title">Camera Test</string>
     <string name="key_test_title">Key Test</string>
     <string name="test_report_title">Test Report</string>
+    <string name="not_found_test">Test items not found</string>
+
+    <string name="version_test_title">System Version Test</string>
+    <string name="rf_cali_test_title">RF CALI Test</string>
+    <string name="rtc_test_title">RTC Test</string>
+    <string name="lcd_test_title">LCD Test</string>
+    <string name="backlit_test_title">Backlit Test</string>
+    <string name="single_finger_touch_test_title">Single Finger Touch Test</string>
+    <string name="multi_finger_touch_test_title">Multi Finger Touch Test</string>
+    <string name="vibration_test_title">Vibration Test</string>
+    <string name="loop_back_test_title">Loop Back Test</string>
+    <string name="sim_card_test_title">Sim Card Test</string>
+    <string name="earpiece_test_title">Earpiece Test</string>
+    <string name="call_test_title">Call Test</string>
+    <string name="sdcard_test_title">SD Card Test</string>
+    <string name="charging_test_title">Charging Test</string>
+    <string name="headset_test_title">Headset Test</string>
+    <string name="fmradio_test_title">FM Radio Test</string>
+    <string name="wifi_test_title">WIFI Test</string>
+    <string name="bluetooth_test_title">Bluetooth Test</string>
+    <string name="gps_test_title">GPS Test</string>
+    <string name="gravity_sensor_test_title">Gravity Sensor Test</string>
+    <string name="proximity_sensor_test_title">Proximity Sensor Test</string>
+    <string name="ambient_light_test_title">Ambient Light Test</string>
+    <string name="system_version_test_title">System Version Test</string>
+
+    <string name="android_version_title">Android Version: </string>
+    <string name="kernal_version_title">Kernal Version: </string>
+    <string name="system_version_title">System Version: </string>
+    <string name="device_serial_number_title">Device Serial Number: </string>
+    <string name="pass">PASS</string>
+    <string name="fail">FAIL</string>
+
+    <string name="disabled_key_tip">Please press "pass" or "fail" to exit test</string>
+
+    <string name="rf_cali_test_fail_tip">The machine is not calibrated</string>
+    <string name="sn">SN: </string>
+    <string name="calibration">Calibration: </string>
+    <string name="comprehensive_test">Comprehensive test:</string>
     
 </resources>

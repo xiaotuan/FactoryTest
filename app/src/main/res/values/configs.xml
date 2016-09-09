@@ -1,4 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string-array name="test_item_title">
+        <item>@string/system_test_title</item>
+        <item>@string/screen_test_title</item>
+        <item>@string/ring_test_title</item>
+        <item>@string/telephony_test_title</item>
+        <item>@string/annex_test_title</item>
+        <item>@string/wireless_test_title</item>
+        <item>@string/sensor_test_title</item>
+        <item>@string/camera_test_title</item>
+        <item>@string/key_test_title</item>
+        <item>@string/test_report_title</item>
+    </string-array>
+
+    <string-array name="test_item_class">
+        <item>com.android.factorytestingtool.system.SystemTestList</item>
+        <item>com.android.factorytestingtool.screen.ScreenTestList</item>
+        <item>com.android.factorytestingtool.ring.RingTestList</item>
+        <item>com.android.factorytestingtool.telephony.TelephonyTestList</item>
+        <item>com.android.factorytestingtool.annex.AnnexTestList</item>
+        <item>com.android.factorytestingtool.wireless.WirelessTestList</item>
+        <item>com.android.factorytestingtool.sensor.SensorTestList</item>
+        <item>com.android.factorytestingtool.camera.CameraTestList</item>
+        <item>com.android.factorytestingtool.key.KeyTestList</item>
+        <item>com.android.factorytestingtool.TestReportActivity</item>
+    </string-array>
+
+    <string-array name="system_test_title">
+        <item>@string/version_test_title</item>
+        <item>@string/rf_cali_test_title</item>
+        <item>@string/rtc_test_title</item>
+    </string-array>
+
+    <string-array name="system_test_class">
+        <item>com.android.factorytestingtool.system.SystemVersionTest</item>
+        <item>com.android.factorytestingtool.system.RfCaliTest</item>
+        <item>com.android.factorytestingtool.system.RtcTest</item>
+    </string-array>
+
+    <string-array name="screen_test_title">
+        <item>@string/lcd_test_title</item>
+        <item>@string/backlit_test_title</item>
+        <item>@string/single_finger_touch_test_title</item>
+        <item>@string/multi_finger_touch_test_title</item>
+    </string-array>
+
+    <string-array name="screen_test_class">
+        <item>com.android.factorytestingtool.screen.LcdTest</item>
+        <item>com.android.factorytestingtool.screen.BacklitTest</item>
+        <item>com.android.factorytestingtool.screen.SingleFingerTouchTest</item>
+        <item>com.android.factorytestingtool.screen.MultiFingerTouchTest</item>
+    </string-array>
+
+    <string-array name="ring_test_title">
+        <item>@string/vibration_test_title</item>
+        <item>@string/ring_test_title</item>
+    </string-array>
+
+    <string-array name="ring_test_class">
+        <item>com.android.factorytestingtool.ring.VibrationTest</item>
+        <item>com.android.factorytestingtool.ring.RingTest</item>
+    </string-array>
+
+    <string-array name="telephony_test_title">
+        <item>@string/loop_back_test_title</item>
+        <item>@string/sim_card_test_title</item>
+        <item>@string/earpiece_test_title</item>
+        <item>@string/call_test_title</item>
+    </string-array>
+
+    <string-array name="telephony_test_class">
+        <item>com.android.factorytestingtool.telephony.LoopbackTest</item>
+        <item>com.android.factorytestingtool.telephony.SimCardTest</item>
+        <item>com.android.factorytestingtool.telephony.EarpieceTest</item>
+        <item>com.android.factorytestingtool.telephony.CallTest</item>
+    </string-array>
+
+    <string-array name="annex_test_title">
+        <item>@string/sdcard_test_title</item>
+        <item>@string/charging_test_title</item>
+        <item>@string/headset_test_title</item>
+    </string-array>
+
+    <string-array name="annex_test_class">
+        <item>com.android.factorytestingtool.annex.SdcardTest</item>
+        <item>com.android.factorytestingtool.annex.ChargingTest</item>
+        <item>com.android.factorytestingtool.annex.HeadsetTest</item>
+    </string-array>
+
+    <string-array name="wireless_test_title">
+        <item>@string/fmradio_test_title</item>
+        <item>@string/wifi_test_title</item>
+        <item>@string/bluetooth_test_title</item>
+        <item>@string/gps_test_title</item>
+    </string-array>
+
+    <string-array name="wireless_test_class">
+        <item>com.android.factorytestingtool.wireless.FMRadioTest</item>
+        <item>com.android.factorytestingtool.wireless.WifiTest</item>
+        <item>com.android.factorytestingtool.wireless.BluetoothTest</item>
+        <item>com.android.factorytestingtool.wireless.GPSTest</item>
+    </string-array>
+
+    <string-array name="sensor_test_title">
+        <item>@string/gravity_sensor_test_title</item>
+        <item>@string/proximity_sensor_test_title</item>
+        <item>@string/ambient_light_test_title</item>
+    </string-array>
+
+    <string-array name="sensor_test_class">
+        <item>com.android.factorytestingtool.sensor.GravitySensorTest</item>
+        <item>com.android.factorytestingtool.sensor.ProximitySensorTest</item>
+        <item>com.android.factorytestingtool.sensor.AmbientLightTest</item>
+    </string-array>
+
+    <string-array name="camera_test_title">
+        <item>@string/camera_test_title</item>
+    </string-array>
+
+    <string-array name="camera_test_class">
+        <item>com.android.factorytestingtool.camera.CameraTest</item>
+    </string-array>
+
+    <string-array name="key_test_title">
+        <item>@string/key_test_title</item>
+    </string-array>
+
+    <string-array name="key_test_class">
+        <item>com.android.factorytestingtool.key.KeyTest</item>
+    </string-array>
+
+    <string-array name="test_item_state_list">
+        <item>system_test_class</item>
+        <item>screen_test_class</item>
+        <item>ring_test_class</item>
+        <item>telephony_test_class</item>
+        <item>annex_test_class</item>
+        <item>wireless_test_class</item>
+        <item>sensor_test_class</item>
+        <item>camera_test_class</item>
+        <item>key_test_class</item>
+    </string-array>
+
 </resources>

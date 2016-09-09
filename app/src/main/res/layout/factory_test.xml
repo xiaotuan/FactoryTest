@@ -1,0 +1,40 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:scrollbars="none" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/auto_test"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_height"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/auto_test_title_background"
+            android:gravity="center"
+            android:padding="@dimen/auto_test_padding"
+            android:text="@string/auto_test_title"
+            android:textColor="@color/white"
+            android:textSize="@dimen/auto_test_text_size"
+            android:textStyle="bold" />
+
+        <GridLayout
+            android:id="@+id/test_item_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="@integer/column_count"
+            android:orientation="horizontal" />
+    </LinearLayout>
+
+</ScrollView>
