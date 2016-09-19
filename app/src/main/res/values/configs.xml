@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--    Test item list title    -->
     <string-array name="test_item_title">
         <item>@string/system_test_title</item>
         <item>@string/screen_test_title</item>
@@ -14,29 +15,32 @@
         <item>@string/test_report_title</item>
     </string-array>
 
+    <!--    Test item list class name   -->
     <string-array name="test_item_class">
-        <item>com.android.factorytestingtool.system.SystemTestList</item>
-        <item>com.android.factorytestingtool.screen.ScreenTestList</item>
-        <item>com.android.factorytestingtool.ring.RingTestList</item>
-        <item>com.android.factorytestingtool.telephony.TelephonyTestList</item>
-        <item>com.android.factorytestingtool.annex.AnnexTestList</item>
-        <item>com.android.factorytestingtool.wireless.WirelessTestList</item>
-        <item>com.android.factorytestingtool.sensor.SensorTestList</item>
-        <item>com.android.factorytestingtool.camera.CameraTestList</item>
-        <item>com.android.factorytestingtool.key.KeyTestList</item>
-        <item>com.android.factorytestingtool.TestReportActivity</item>
+        <item>com.android.factorytest.systemtest.SystemTestList</item>
+        <item>com.android.factorytest.screentest.ScreenTestList</item>
+        <item>com.android.factorytest.ringtest.RingTestList</item>
+        <item>com.android.factorytest.telephonytest.TelephonyTestList</item>
+        <item>com.android.factorytest.annextest.AnnexTestList</item>
+        <item>com.android.factorytest.wirelesstest.WirelessTestList</item>
+        <item>com.android.factorytest.sensortest.SensorTestList</item>
+        <item>com.android.factorytest.cameratest.CameraTestList</item>
+        <item>com.android.factorytest.keytest.KeyTestList</item>
+        <item>com.android.factorytest.TestReportActivity</item>
     </string-array>
 
+    <!--    System test item title  -->
     <string-array name="system_test_title">
         <item>@string/version_test_title</item>
         <item>@string/rf_cali_test_title</item>
         <item>@string/rtc_test_title</item>
     </string-array>
 
+    <!--    System test item class name     -->
     <string-array name="system_test_class">
-        <item>com.android.factorytestingtool.system.SystemVersionTest</item>
-        <item>com.android.factorytestingtool.system.RfCaliTest</item>
-        <item>com.android.factorytestingtool.system.RtcTest</item>
+        <item>com.android.factorytest.systemtest.SystemVersionTest</item>
+        <item>com.android.factorytest.systemtest.RfCaliTest</item>
+        <item>com.android.factorytest.systemtest.RtcTest</item>
     </string-array>
 
     <string-array name="screen_test_title">
@@ -47,10 +51,10 @@
     </string-array>
 
     <string-array name="screen_test_class">
-        <item>com.android.factorytestingtool.screen.LcdTest</item>
-        <item>com.android.factorytestingtool.screen.BacklitTest</item>
-        <item>com.android.factorytestingtool.screen.SingleFingerTouchTest</item>
-        <item>com.android.factorytestingtool.screen.MultiFingerTouchTest</item>
+        <item>com.android.factorytest.screentest.LcdTest</item>
+        <item>com.android.factorytest.screentest.BacklitTest</item>
+        <item>com.android.factorytest.screentest.SingleFingerTouchTest</item>
+        <item>com.android.factorytest.screentest.MultiFingerTouchTest</item>
     </string-array>
 
     <string-array name="ring_test_title">
@@ -59,8 +63,8 @@
     </string-array>
 
     <string-array name="ring_test_class">
-        <item>com.android.factorytestingtool.ring.VibrationTest</item>
-        <item>com.android.factorytestingtool.ring.RingTest</item>
+        <item>com.android.factorytest.ringtest.VibrationTest</item>
+        <item>com.android.factorytest.ringtest.RingTest</item>
     </string-array>
 
     <string-array name="telephony_test_title">
@@ -71,10 +75,10 @@
     </string-array>
 
     <string-array name="telephony_test_class">
-        <item>com.android.factorytestingtool.telephony.LoopbackTest</item>
-        <item>com.android.factorytestingtool.telephony.SimCardTest</item>
-        <item>com.android.factorytestingtool.telephony.EarpieceTest</item>
-        <item>com.android.factorytestingtool.telephony.CallTest</item>
+        <item>com.android.factorytest.telephonytest.LoopbackTest</item>
+        <item>com.android.factorytest.telephonytest.SimCardTest</item>
+        <item>com.android.factorytest.telephonytest.EarpieceTest</item>
+        <item>com.android.factorytest.telephonytest.CallTest</item>
     </string-array>
 
     <string-array name="annex_test_title">
@@ -84,9 +88,9 @@
     </string-array>
 
     <string-array name="annex_test_class">
-        <item>com.android.factorytestingtool.annex.SdcardTest</item>
-        <item>com.android.factorytestingtool.annex.ChargingTest</item>
-        <item>com.android.factorytestingtool.annex.HeadsetTest</item>
+        <item>com.android.factorytest.annextest.SdcardTest</item>
+        <item>com.android.factorytest.annextest.ChargingTest</item>
+        <item>com.android.factorytest.annextest.HeadsetTest</item>
     </string-array>
 
     <string-array name="wireless_test_title">
@@ -97,10 +101,10 @@
     </string-array>
 
     <string-array name="wireless_test_class">
-        <item>com.android.factorytestingtool.wireless.FMRadioTest</item>
-        <item>com.android.factorytestingtool.wireless.WifiTest</item>
-        <item>com.android.factorytestingtool.wireless.BluetoothTest</item>
-        <item>com.android.factorytestingtool.wireless.GPSTest</item>
+        <item>com.android.factorytest.wirelesstest.FMRadioTest</item>
+        <item>com.android.factorytest.wirelesstest.WifiTest</item>
+        <item>com.android.factorytest.wirelesstest.BluetoothTest</item>
+        <item>com.android.factorytest.wirelesstest.GPSTest</item>
     </string-array>
 
     <string-array name="sensor_test_title">
@@ -110,9 +114,9 @@
     </string-array>
 
     <string-array name="sensor_test_class">
-        <item>com.android.factorytestingtool.sensor.GravitySensorTest</item>
-        <item>com.android.factorytestingtool.sensor.ProximitySensorTest</item>
-        <item>com.android.factorytestingtool.sensor.AmbientLightTest</item>
+        <item>com.android.factorytest.sensortest.GravitySensorTest</item>
+        <item>com.android.factorytest.sensortest.ProximitySensorTest</item>
+        <item>com.android.factorytest.sensortest.AmbientLightTest</item>
     </string-array>
 
     <string-array name="camera_test_title">
@@ -120,7 +124,7 @@
     </string-array>
 
     <string-array name="camera_test_class">
-        <item>com.android.factorytestingtool.camera.CameraTest</item>
+        <item>com.android.factorytest.cameratest.CameraTest</item>
     </string-array>
 
     <string-array name="key_test_title">
@@ -128,7 +132,7 @@
     </string-array>
 
     <string-array name="key_test_class">
-        <item>com.android.factorytestingtool.key.KeyTest</item>
+        <item>com.android.factorytest.keytest.KeyTest</item>
     </string-array>
 
     <string-array name="test_item_state_list">
@@ -142,5 +146,8 @@
         <item>camera_test_class</item>
         <item>key_test_class</item>
     </string-array>
+
+    <!--  Automatic single test test test time, unit: ms    -->
+    <integer name="auto_test_delay_time">3000</integer>
 
 </resources>
