@@ -1,13 +1,12 @@
 package com.android.factorytest.systemtest;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.telecom.TelecomManager;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.widget.TextView;
 
 import com.android.factorytest.BaseActivity;
@@ -16,7 +15,6 @@ import com.android.factorytest.R;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -45,6 +43,18 @@ public class SystemVersionTest extends BaseActivity {
         String kernalVersion = getKernalVersion();
         String systemVersion = Build.DISPLAY;
         String deviceSerialNumber = getDeviceSerialNumber();
+        mAndroidVersionTv.setText(TextUtils.isEmpty(androidVersion) ? getString(R.string.unknown) : androidVersion);
+        mKernalVersionTv.setText(TextUtils.isEmpty(kernalVersion) ? getString(R.string.unknown) : kernalVersion);
+        mSystemVersionTv.setText(TextUtils.isEmpty(systemVersion) ? getString(R.string.unknown) : systemVersion);
+        mDeviceSerialNumberTv.setText(TextUtils.isEmpty(deviceSerialNumber) ? getString(R.string.unknown) : deviceSerialNumber);
+        if (mIsAutoTest) {
+            if (!TextUtils.isEmpty(androidVersion) && !TextUtils.isEmpty(kernalVersion) && !TextUtils.isEmpty(systemVersion)
+                    && !TextUtils.isEmpty(deviceSerialNumber)) {
+                mHandler.sendEmptyMessageDelayed(MSG_PASS, mAutoTestDelayTime);
+            } else {
+                mHandler.sendEmptyMessageDelayed(MSG_FAIL, mAutoTestDelayTime);
+            }
+        }
     }
 
     private void initViews() {
@@ -93,7 +103,7 @@ public class SystemVersionTest extends BaseActivity {
         PackageManager pm = getPackageManager();
         if (tm != null && pm != null) {
             if (PackageManager.PERMISSION_GRANTED !=
-                    pm.checkPermission("android.permission.READ_PHONE_STATE", "packageName")) {
+                    pm.checkPermission(Manifest.permission.READ_PHONE_STATE, getPackageName())) {
                 requestPermissions(new String[]{Manifest.permission.READ_PHONE_STATE},REQUEST_PERMISSION_CODE);
             } else {
                 number = tm.getDeviceId();

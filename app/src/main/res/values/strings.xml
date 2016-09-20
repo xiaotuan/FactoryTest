@@ -39,17 +39,17 @@
     <string name="system_version_test_title">System Version Test</string>
 
     <string name="android_version_title">Android Version: </string>
-    <string name="kernal_version_title">Kernal Version: </string>
+    <string name="kernel_version_title">Kernel Version: </string>
     <string name="system_version_title">System Version: </string>
     <string name="device_serial_number_title">Device Serial Number: </string>
-    <string name="pass">PASS</string>
-    <string name="fail">FAIL</string>
+    <string name="unknown">Unknown</string>
+    <string name="pass">Pass</string>
+    <string name="fail">Fail</string>
 
     <string name="disabled_key_tip">Please press "pass" or "fail" to exit test</string>
 
-    <string name="rf_cali_test_fail_tip">The machine is not calibrated</string>
-    <string name="sn">SN: </string>
-    <string name="calibration">Calibration: </string>
-    <string name="comprehensive_test">Comprehensive test:</string>
+    <string name="rf_cali_test_sn_title">SN: </string>
+    <string name="rf_cali_test_calibration_title">Calibration: </string>
+    <string name="rf_cali_test_comprehensive_test_title">Comprehensive Test:</string>
 
 </resources>

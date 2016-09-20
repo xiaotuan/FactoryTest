@@ -4,7 +4,7 @@ import android.os.Build;
 
 public class Log {
 	
-	private static final String TAG = "FactoryTestTool";
+	private static final String TAG = "FactoryTest";
 
 	private static final boolean FOCRE_DEBUG = true;//SystemProperties.getBoolean("persist.sys.log.factorytest", false);
 	private static final boolean DEBUG = (FOCRE_DEBUG || Build.TYPE.equals("eng"));

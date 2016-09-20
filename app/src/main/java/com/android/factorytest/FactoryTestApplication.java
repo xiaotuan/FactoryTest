@@ -348,6 +348,9 @@ public class FactoryTestApplication extends Application {
 
     public void resetAutoTest() {
         mTestPosition = 0;
+    }
+
+    public void clearAllData() {
         mFactoryDatabase.clearAllData();
     }
 

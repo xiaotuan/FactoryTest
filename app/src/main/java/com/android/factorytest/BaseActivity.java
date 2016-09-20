@@ -14,9 +14,9 @@ import android.widget.Toast;
 
 public abstract class BaseActivity extends Activity implements View.OnClickListener {
 
-    private static final int FLAG_HOMEKEY_DISPATCHED = 0x80000000;
-    private static final int MSG_FAIL = 0;
-    private static final int MSG_PASS = 1;
+    protected static final int FLAG_HOMEKEY_DISPATCHED = 0x80000000;
+    protected static final int MSG_FAIL = 0;
+    protected static final int MSG_PASS = 1;
 
     protected Button mPassBtn;
     protected Button mFailBtn;
@@ -24,7 +24,7 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
     protected FactoryTestApplication mApplication;
 
     protected boolean mIsAutoTest;
-    private int mAutoTestDelayTime;
+    protected int mAutoTestDelayTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,8 +69,15 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+        if (mHandler.hasMessages(MSG_PASS)) {
+            mHandler.removeMessages(MSG_PASS);
+        }
+        if (mHandler.hasMessages(MSG_FAIL)) {
+            mHandler.removeMessages(MSG_FAIL);
+        }
         String className = this.getClass().getName();
         int index = mApplication.findTestIndex(className);
+        Log.d(this, "onClick=>pass: " + mPassBtn.getId() + " fail: " + mFailBtn.getId() + " id: " + v.getId());
         switch (v.getId()) {
             case R.id.pass:
                 mApplication.setTestState(index, className, TestItemInfo.State.PASS);
@@ -107,7 +114,7 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
         mFailBtn.setOnClickListener(this);
     }
 
-    private Handler mHandler = new Handler() {
+    protected Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             Log.d("BaseActivity", "handleMessage=>what: " + msg.what);

@@ -107,6 +107,7 @@ public class FactoryDatabase {
 			c.close();
 			result = sd.insert(TEST_RESULT_TABLE, CLASS, cv);
 		}
+		Log.d(this, "setTestState=>resutl: " + result + " index: " + index + " className: " + className + " state: " + state);
 		return result;
 	}
 

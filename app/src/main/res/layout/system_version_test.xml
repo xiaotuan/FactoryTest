@@ -18,7 +18,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/system_test_item_padding"
+                android:paddingTop="@dimen/test_item_padding"
+                android:paddingLeft="@dimen/test_item_padding"
+                android:paddingRight="@dimen/test_item_padding"
+                android:paddingBottom="@dimen/test_result_padding"
                 android:text="@string/android_version_title"
                 android:textColor="@color/green"
                 android:textSize="@dimen/system_test_item_title_test_size" />
@@ -27,13 +30,17 @@
                 android:id="@+id/android_version"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/system_test_item_padding" />
+                android:paddingLeft="@dimen/test_item_padding"
+                android:textSize="@dimen/test_item_result_text_size"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/system_test_item_padding"
-                android:text="@string/kernal_version_title"
+                android:paddingTop="@dimen/test_item_padding"
+                android:paddingLeft="@dimen/test_item_padding"
+                android:paddingRight="@dimen/test_item_padding"
+                android:paddingBottom="@dimen/test_result_padding"
+                android:text="@string/kernel_version_title"
                 android:textColor="@color/green"
                 android:textSize="@dimen/system_test_item_title_test_size" />
 
@@ -41,12 +48,16 @@
                 android:id="@+id/kernal_version"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/system_test_item_padding" />
+                android:paddingLeft="@dimen/test_item_padding"
+                android:textSize="@dimen/test_item_result_text_size"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/system_test_item_padding"
+                android:paddingTop="@dimen/test_item_padding"
+                android:paddingLeft="@dimen/test_item_padding"
+                android:paddingRight="@dimen/test_item_padding"
+                android:paddingBottom="@dimen/test_result_padding"
                 android:text="@string/system_version_title"
                 android:textColor="@color/green"
                 android:textSize="@dimen/system_test_item_title_test_size" />
@@ -55,12 +66,16 @@
                 android:id="@+id/system_version"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/system_test_item_padding" />
+                android:paddingLeft="@dimen/test_item_padding"
+                android:textSize="@dimen/test_item_result_text_size" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/system_test_item_padding"
+                android:paddingTop="@dimen/test_item_padding"
+                android:paddingLeft="@dimen/test_item_padding"
+                android:paddingRight="@dimen/test_item_padding"
+                android:paddingBottom="@dimen/test_result_padding"
                 android:text="@string/device_serial_number_title"
                 android:textColor="@color/green"
                 android:textSize="@dimen/system_test_item_title_test_size" />
@@ -69,7 +84,8 @@
                 android:id="@+id/device_serial_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/system_test_item_padding" />
+                android:paddingLeft="@dimen/test_item_padding"
+                android:textSize="@dimen/test_item_result_text_size" />
         </LinearLayout>
     </ScrollView>
 
@@ -77,7 +93,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginTop="@dimen/test_button_padding"
         android:gravity="bottom" >
 
         <Button

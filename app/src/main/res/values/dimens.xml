@@ -10,11 +10,14 @@
     <integer name="column_count">2</integer>
     <dimen name="item_test_text_size">12sp</dimen>
 
-    <dimen name="system_test_item_padding">8dp</dimen>
+    <dimen name="test_item_padding">8dp</dimen>
+    <dimen name="test_result_padding">2dp</dimen>
+    <dimen name="test_button_padding">8dp</dimen>
     <dimen name="test_item_title_test_size">20sp</dimen>
     <dimen name="test_result_text_size">20sp</dimen>
     <dimen name="empty_view_text_size">24sp</dimen>
     <dimen name="system_test_item_title_test_size">28sp</dimen>
+    <dimen name="test_item_result_text_size">20sp</dimen>
 
 
 </resources>

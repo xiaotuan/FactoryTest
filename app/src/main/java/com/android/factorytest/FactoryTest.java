@@ -93,6 +93,7 @@ public class FactoryTest extends Activity {
         @Override
         public void onClick(View v) {
             mApplication.resetAutoTest();
+            mApplication.clearAllData();
             mApplication.startAutoTest();
         }
     };

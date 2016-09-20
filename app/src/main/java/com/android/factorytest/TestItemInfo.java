@@ -36,7 +36,6 @@ public class TestItemInfo {
 		ComponentName name = new ComponentName(mPackageName, mClassName);
 		intent.setComponent(name);
 		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 		return intent;
 	}
 
