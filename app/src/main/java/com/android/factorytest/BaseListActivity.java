@@ -17,6 +17,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+/**
+ * 测试组列表的基类
+ */
 public abstract class BaseListActivity extends ListActivity implements AdapterView.OnItemClickListener {
 
     protected FactoryTestApplication mApplication;
@@ -61,6 +64,10 @@ public abstract class BaseListActivity extends ListActivity implements AdapterVi
         return view;
     }
 
+    /**
+     * 设置测试项数组，如果测试数组只有一项，则直接启动该测试，而不再显示测试项列表
+     * @param list　测试项数组
+     */
     public void setTestList(ArrayList<TestItemInfo> list) {
         if (list.size() == 1) {
             if (list.get(0) != null) {

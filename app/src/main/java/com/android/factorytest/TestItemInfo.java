@@ -40,6 +40,6 @@ public class TestItemInfo {
 	}
 
 	public enum State {
-		UNKNOW, PASS, FAIL
+		UNKNOWN, PASS, FAIL
 	}
 }

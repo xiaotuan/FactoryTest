@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    配置说明：
+        （１）test_item_title和test_item_class数组是主界面显示测试列表，test_item_title是测试的名称，test_item_class是对应的测试Activity的完整类名。
+            如果需要添加新的测试项，可以在test_item_title添加测试项的名称，以及在test_item_class添加测试项的完整类名即可。
+        （２）system_test_title和system_test_class数组是系统测试组中的测试名称和测试类的类名。
+            如果需要在系统测试组中，则在system_test_title数组中添加测试名称，在system_test_class下添加对应的类名。
+        （３）其他的屏幕测试组（screen_test_title）、铃声测试组（ring_test_title）、电话测试组（telephony_test_title）、附件测试组（annex_test_title）、
+            无线测试组（wireless_test_title）、传感器测试组（sensor_test_title）、相机测试组（camera_test_title）和按键测试组（key_test_title）的配置方法与（２）相同。
+        （４）test_item_state_list是获取测试的状态，通过该数组的内容可以获取到对应的测试组数组，通过测试组可以获取到测试组下的所有测试项的测试状态。
+-->
 <resources>
 
-    <!--    Test item list title    -->
+    <!--    测试列表标题    -->
     <string-array name="test_item_title">
         <item>@string/system_test_title</item>
         <item>@string/screen_test_title</item>
@@ -15,7 +25,7 @@
         <item>@string/test_report_title</item>
     </string-array>
 
-    <!--    Test item list class name   -->
+    <!--    测试列表类名   -->
     <string-array name="test_item_class">
         <item>com.android.factorytest.systemtest.SystemTestList</item>
         <item>com.android.factorytest.screentest.ScreenTestList</item>
@@ -29,20 +39,21 @@
         <item>com.android.factorytest.TestReportActivity</item>
     </string-array>
 
-    <!--    System test item title  -->
+    <!--    系统测试列表标题  -->
     <string-array name="system_test_title">
         <item>@string/version_test_title</item>
         <item>@string/rf_cali_test_title</item>
         <item>@string/rtc_test_title</item>
     </string-array>
 
-    <!--    System test item class name     -->
+    <!--    系统测试列表类名     -->
     <string-array name="system_test_class">
         <item>com.android.factorytest.systemtest.SystemVersionTest</item>
         <item>com.android.factorytest.systemtest.RfCaliTest</item>
         <item>com.android.factorytest.systemtest.RtcTest</item>
     </string-array>
 
+    <!--    屏幕测试列表标题    -->
     <string-array name="screen_test_title">
         <item>@string/lcd_test_title</item>
         <item>@string/backlit_test_title</item>
@@ -50,6 +61,7 @@
         <item>@string/multi_finger_touch_test_title</item>
     </string-array>
 
+    <!--    屏幕测试列表类名  -->
     <string-array name="screen_test_class">
         <item>com.android.factorytest.screentest.LcdTest</item>
         <item>com.android.factorytest.screentest.BacklitTest</item>
@@ -57,16 +69,19 @@
         <item>com.android.factorytest.screentest.MultiFingerTouchTest</item>
     </string-array>
 
+    <!--    铃声测试列表标题    -->
     <string-array name="ring_test_title">
         <item>@string/vibration_test_title</item>
         <item>@string/ring_test_title</item>
     </string-array>
 
+    <!--    铃声测试列表类名  -->
     <string-array name="ring_test_class">
         <item>com.android.factorytest.ringtest.VibrationTest</item>
         <item>com.android.factorytest.ringtest.RingTest</item>
     </string-array>
 
+    <!--    电话测试列表标题    -->
     <string-array name="telephony_test_title">
         <item>@string/loop_back_test_title</item>
         <item>@string/sim_card_test_title</item>
@@ -74,6 +89,7 @@
         <item>@string/call_test_title</item>
     </string-array>
 
+    <!--    电话测试列表类名  -->
     <string-array name="telephony_test_class">
         <item>com.android.factorytest.telephonytest.LoopbackTest</item>
         <item>com.android.factorytest.telephonytest.SimCardTest</item>
@@ -81,18 +97,21 @@
         <item>com.android.factorytest.telephonytest.CallTest</item>
     </string-array>
 
+    <!--    附件测试列表标题    -->
     <string-array name="annex_test_title">
         <item>@string/sdcard_test_title</item>
         <item>@string/charging_test_title</item>
         <item>@string/headset_test_title</item>
     </string-array>
 
+    <!--    附件测试列表类名  -->
     <string-array name="annex_test_class">
         <item>com.android.factorytest.annextest.SdcardTest</item>
         <item>com.android.factorytest.annextest.ChargingTest</item>
         <item>com.android.factorytest.annextest.HeadsetTest</item>
     </string-array>
 
+    <!--    无线测试列表标题    -->
     <string-array name="wireless_test_title">
         <item>@string/fmradio_test_title</item>
         <item>@string/wifi_test_title</item>
@@ -100,6 +119,7 @@
         <item>@string/gps_test_title</item>
     </string-array>
 
+    <!--    无线测试列表类名  -->
     <string-array name="wireless_test_class">
         <item>com.android.factorytest.wirelesstest.FMRadioTest</item>
         <item>com.android.factorytest.wirelesstest.WifiTest</item>
@@ -107,34 +127,41 @@
         <item>com.android.factorytest.wirelesstest.GPSTest</item>
     </string-array>
 
+    <!--    传感器测试列表标题   -->
     <string-array name="sensor_test_title">
         <item>@string/gravity_sensor_test_title</item>
         <item>@string/proximity_sensor_test_title</item>
         <item>@string/ambient_light_test_title</item>
     </string-array>
 
+    <!--    传感器测试列表类名     -->
     <string-array name="sensor_test_class">
         <item>com.android.factorytest.sensortest.GravitySensorTest</item>
         <item>com.android.factorytest.sensortest.ProximitySensorTest</item>
         <item>com.android.factorytest.sensortest.AmbientLightTest</item>
     </string-array>
 
+    <!--    相机测试列表标题    -->
     <string-array name="camera_test_title">
         <item>@string/camera_test_title</item>
     </string-array>
 
+    <!--    相机测试列表类名  -->
     <string-array name="camera_test_class">
         <item>com.android.factorytest.cameratest.CameraTest</item>
     </string-array>
 
+    <!--    按键测试列表标题    -->
     <string-array name="key_test_title">
         <item>@string/key_test_title</item>
     </string-array>
 
+    <!--    按键测试列表类名    -->
     <string-array name="key_test_class">
         <item>com.android.factorytest.keytest.KeyTest</item>
     </string-array>
 
+    <!--    测试结果数组名称，是每个测试列表类名的数组名称，最终通过数组名称获取该测试列表下的所有测试项的类名   -->
     <string-array name="test_item_state_list">
         <item>system_test_class</item>
         <item>screen_test_class</item>
@@ -147,7 +174,33 @@
         <item>key_test_class</item>
     </string-array>
 
-    <!--  Automatic single test test test time, unit: ms    -->
+    <!--  自动测试时，进行下一测试项测试的延迟时间，单位：毫秒   -->
     <integer name="auto_test_delay_time">3000</integer>
+
+    <!--    屏幕测试时，使用的颜色数组   -->
+    <integer-array name="lcd_test_colors">
+        <item>0xffffffff</item>
+        <item>0xffff0000</item>
+        <item>0xff00ff00</item>
+        <item>0xff0000ff</item>
+        <item>0xffffff00</item>
+    </integer-array>
+
+    <!--    LCD　测试时切换屏幕颜色的延迟时间，单位：毫秒    -->
+    <integer name="lcd_test_next_color_delayed">5000</integer>
+    <!--    LCD 测试时隐藏操作提示信息的延迟时间，　单位：毫秒   -->
+    <integer name="lcd_test_hide_start_tip_delayed">3000</integer>
+    <!--    LCD 测试时显示结束测试提示信息的延迟时间，单位：毫秒    -->
+    <integer name="lcd_test_show_end_tip_delayed">5000</integer>
+
+    <!--    背光测试颜色数组    -->
+    <integer-array name="backlit_test_colors">
+        <item>0xff000000</item>
+        <item>0xffffffff</item>
+    </integer-array>
+    <!--    背光测试颜色切换延迟时间    -->
+    <integer name="backlit_test_switch_color_delayed">1000</integer>
+    <!--    背光测试切换次数    -->
+    <integer name="backlit_test_switch_times">4</integer>
 
 </resources>

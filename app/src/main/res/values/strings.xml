@@ -13,6 +13,7 @@
     <string name="key_test_title">Key Test</string>
     <string name="test_report_title">Test Report</string>
     <string name="not_found_test">Test items not found</string>
+    <string name="not_found_test_index">Test items index not found</string>
 
     <string name="version_test_title">System Version Test</string>
     <string name="rf_cali_test_title">RF CALI Test</string>
@@ -51,5 +52,9 @@
     <string name="rf_cali_test_sn_title">SN: </string>
     <string name="rf_cali_test_calibration_title">Calibration: </string>
     <string name="rf_cali_test_comprehensive_test_title">Comprehensive Test:</string>
+    <string name="system_test_system_time">System Time: </string>
+
+    <string name="lcd_test_view_start_tip">Touch Continue</string>
+    <string name="lcd_test_view_end_tip">LCD test is complete</string>
 
 </resources>

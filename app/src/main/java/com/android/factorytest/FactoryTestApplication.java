@@ -9,7 +9,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 /**
- * Created by user on 16-9-6.
+ * （１）在应用创建时，初始化所有测试项。
+ * （２）
  */
 public class FactoryTestApplication extends Application {
 
@@ -41,10 +42,17 @@ public class FactoryTestApplication extends Application {
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
+        // 语言改变时，更新各测试项的测试标题名称
         updateValues();
         super.onConfigurationChanged(newConfig);
     }
 
+    /**
+     * 更新所有测试项信息。
+     * 首先更新主界面测试列表信息。
+     * 其次更新所有测试项信息。
+     * 最后更新自动测试项列表信息，因为该信息是从各测试项中直接获取的。
+     */
     public void updateValues() {
         updateTestList();
         updateSystemTestList();
@@ -59,6 +67,9 @@ public class FactoryTestApplication extends Application {
         updateAutoTestList();
     }
 
+    /**
+     * 更新主界面测试列表信息。
+     */
     public void updateTestList() {
         mTestList.clear();
         ArrayList<FactoryDatabase.ItemState> states = mFactoryDatabase.getAllTestState();
@@ -73,6 +84,9 @@ public class FactoryTestApplication extends Application {
         }
     }
 
+    /**
+     * 更新系统测试组测试列表信息。
+     */
     public void updateSystemTestList() {
         mSystemTestList.clear();
         String[] titles = mResources.getStringArray(R.array.system_test_title);
@@ -86,6 +100,9 @@ public class FactoryTestApplication extends Application {
         }
     }
 
+    /**
+     * 更新屏幕测试组测试列表信息。
+     */
     public void updateScreenTestList() {
         mScreenTestList.clear();
         String[] titles = mResources.getStringArray(R.array.screen_test_title);
@@ -99,6 +116,9 @@ public class FactoryTestApplication extends Application {
         }
     }
 
+    /**
+     * 更新铃声测试组测试列表信息。
+     */
     public void updateRingTestList() {
         mRingTestList.clear();
         String[] titles = mResources.getStringArray(R.array.ring_test_title);
@@ -112,6 +132,9 @@ public class FactoryTestApplication extends Application {
         }
     }
 
+    /**
+     * 更新电话测试组测试列表信息。
+     */
     public void updateTelephonyTestList() {
         mTelephonyTestList.clear();
         String[] titles = mResources.getStringArray(R.array.telephony_test_title);
@@ -125,6 +148,9 @@ public class FactoryTestApplication extends Application {
         }
     }
 
+    /**
+     * 更新附件测试组测试列表信息。
+     */
     public void updateAnnexTestList() {
         mAnnexTestList.clear();
         String[] titles = mResources.getStringArray(R.array.annex_test_title);
@@ -138,6 +164,9 @@ public class FactoryTestApplication extends Application {
         }
     }
 
+    /**
+     * 更新无线测试组测试列表信息。
+     */
     public void updateWirelessTestList() {
         mWirelessTestList.clear();
         String[] titles = mResources.getStringArray(R.array.wireless_test_title);
@@ -151,6 +180,9 @@ public class FactoryTestApplication extends Application {
         }
     }
 
+    /**
+     * 更新传感器测试组测试列表信息。
+     */
     public void updateSensorTestList() {
         mSensorTestList.clear();
         String[] titles = mResources.getStringArray(R.array.sensor_test_title);
@@ -164,6 +196,9 @@ public class FactoryTestApplication extends Application {
         }
     }
 
+    /**
+     * 更新相机测试组测试列表信息。
+     */
     public void updateCameraTestList() {
         mCameraTestList.clear();
         String[] titles = mResources.getStringArray(R.array.camera_test_title);
@@ -177,6 +212,9 @@ public class FactoryTestApplication extends Application {
         }
     }
 
+    /**
+     * 更新按键测试组测试列表信息。
+     */
     public void updateKeyTestList() {
         mKeyTestList.clear();
         String[] titles = mResources.getStringArray(R.array.key_test_title);
@@ -184,12 +222,15 @@ public class FactoryTestApplication extends Application {
         int length = (titles.length <= classes.length ? titles.length : classes.length);
         if (length > 0) {
             for (int i = 0; i < length; i++) {
-                TestItemInfo info = new TestItemInfo(titles[i], getPackageName(), classes[i], TestItemInfo.State.UNKNOW);
+                TestItemInfo info = new TestItemInfo(titles[i], getPackageName(), classes[i], TestItemInfo.State.UNKNOWN);
                 mKeyTestList.add(info);
             }
         }
     }
 
+    /**
+     * 更新自动测试列表信息。
+     */
     public void updateAutoTestList() {
         mAutoTestList.clear();
         if (mSystemTestList.size() > 0) {
@@ -248,8 +289,14 @@ public class FactoryTestApplication extends Application {
         Log.d(this, "updateAutoTestList=>size: " + mAutoTestList.size());
     }
 
+    /**
+     * 获取测试组的测试状态信息。
+     * @param index 测试组下标，从０开始
+     * @param states　所有测试项的测试状态数组
+     * @return  如果测试组中的所有测试项都测试通过，则返回State.PASS；如果测试组中有一项或多项测试不通过，则返回State.FAIL；否则返回State.UNKNOWN。
+     */
     public TestItemInfo.State getTestState(int index, ArrayList<FactoryDatabase.ItemState> states) {
-        TestItemInfo.State state = TestItemInfo.State.UNKNOW;
+        TestItemInfo.State state = TestItemInfo.State.UNKNOWN;
         String[] idNames = mResources.getStringArray(R.array.test_item_state_list);
         if (index < idNames.length) {
             int id = mResources.getIdentifier(idNames[index], "array", getPackageName());
@@ -321,17 +368,34 @@ public class FactoryTestApplication extends Application {
         return mAutoTestList;
     }
 
+    /**
+     * 获取测试项的测试状态
+     * @param className 测试项的类名
+     * @return 如果测试通过，返回State.PASS; 如果测试失败，则返回State.FAIL；否则返回State.UNKNOWN。
+     */
     public TestItemInfo.State getTestState(String className) {
         return mFactoryDatabase.getTestState(className);
     }
 
+    /**
+     * 设置测试项的测试状态。
+     * @param index 测试项所在的下标
+     * @param className　测试项的类名
+     * @param state 测试结果
+     * @return 设置成功，返回true；否则返回false
+     */
     public boolean setTestState(int index, String className, TestItemInfo.State state) {
         long result = mFactoryDatabase.setTestState(index, className, state);
         return result != -1;
     }
 
+    /**
+     * 查找测试项的下标
+     * @param className　测试项的类名
+     * @return 如果找到测试项，这返回该测试项的下标；否则返回-1
+     */
     public int findTestIndex(String className) {
-        int index = 1;
+        int index = -1;
         if (mAutoTestList.size() <= 0){
             updateAutoTestList();
         }
@@ -346,14 +410,23 @@ public class FactoryTestApplication extends Application {
         return index;
     }
 
+    /**
+     * 重置自动测试下标
+     */
     public void resetAutoTest() {
         mTestPosition = 0;
     }
 
+    /**
+     * 删除所有测试数据
+     */
     public void clearAllData() {
         mFactoryDatabase.clearAllData();
     }
 
+    /**
+     * 启动自动测试。
+     */
     public void startAutoTest() {
         if (mAutoTestList.size() > 0) {
             TestItemInfo info = mAutoTestList.get(mTestPosition);
@@ -372,6 +445,9 @@ public class FactoryTestApplication extends Application {
         }
     }
 
+    /**
+     * 自动测试中，测试下一个测试项。
+     */
     public void startNextTest() {
         Log.d(this, "startAutoTest=>size: " + mAutoTestList.size() + " testPosition: " + mTestPosition);
         if (mAutoTestList.size() > 0) {

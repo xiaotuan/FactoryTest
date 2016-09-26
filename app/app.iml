@@ -124,7 +124,6 @@
     <orderEntry type="library" exported="" name="support-fragment-24.2.1" level="project" />
     <orderEntry type="library" exported="" name="support-core-ui-24.2.1" level="project" />
     <orderEntry type="library" exported="" name="layoutlib" level="project" />
-    <orderEntry type="library" exported="" name="1_layoutlib" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-24.2.1" level="project" />
     <orderEntry type="library" exported="" name="support-vector-drawable-24.2.1" level="project" />
     <orderEntry type="library" exported="" name="support-core-utils-24.2.1" level="project" />

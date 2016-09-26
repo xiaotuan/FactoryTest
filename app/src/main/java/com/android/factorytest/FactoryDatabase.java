@@ -10,15 +10,23 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class FactoryDatabase {
 
+	// 数据库名称
 	private static final String DATABASE_NAME = "factory_test.db";
+	// 数据库版本号
 	private static final int DATABASE_VERSION = 1;
 
+	// 测试结果表名称
 	public static final String TEST_RESULT_TABLE = "test_result";
+	// 测试id号，自动生产，不重复
 	public static final String ID = "_id";
+	// 测试类名
 	public static final String CLASS = "class";
+	// 测试状态
 	public static final String STATE = "state";
+	// 测试所属位置，用于在显示测试报告时进行排序
 	public static final String POSITION = "position";
 
+	// 测试结果表栏目名称数组
 	public static final String[] COLUMNS = {ID, CLASS, STATE, POSITION};
 
 	private FactoryOpenHelper mFactoryDataHelper;
@@ -31,9 +39,14 @@ public class FactoryDatabase {
 		return mFactoryDatabase;
 	}
 
+	/**
+	 * 获取测试项的测试结果
+	 * @param className　测试项名称
+	 * @return １表示测试通过，返回State.PASS；２表示测试失败，返回State.FAIL；没有或其他值表示没有测试，返回State.UNKNOWN
+     */
 	public TestItemInfo.State getTestState(String className) {
 		SQLiteDatabase sd = mFactoryDataHelper.getReadableDatabase();
-		TestItemInfo.State state = TestItemInfo.State.UNKNOW;
+		TestItemInfo.State state = TestItemInfo.State.UNKNOWN;
 		String[] cols = new String[]{CLASS, STATE};
 		String[] selectionArgs = new String[]{className};
 		Cursor c = sd.query(TEST_RESULT_TABLE, cols, CLASS + "=?", selectionArgs, null, null, null);
@@ -54,6 +67,10 @@ public class FactoryDatabase {
 		return state;
 	}
 
+	/**
+	 * 获取所有测试项的测试状态
+	 * @return	返回所有测试项测试结果的数组
+     */
 	public ArrayList<ItemState> getAllTestState() {
 		ArrayList<ItemState> list = new ArrayList<ItemState>();
 		SQLiteDatabase sd = mFactoryDataHelper.getReadableDatabase();
@@ -66,7 +83,7 @@ public class FactoryDatabase {
 				int s = 0;
 				int index = -1;
 				while (c.moveToNext()) {
-					TestItemInfo.State state = TestItemInfo.State.UNKNOW;
+					TestItemInfo.State state = TestItemInfo.State.UNKNOWN;
 					className = c.getString(c.getColumnIndexOrThrow(CLASS));
 					s = c.getInt(c.getColumnIndexOrThrow(STATE));
 					index = c.getInt(c.getColumnIndexOrThrow(POSITION));
@@ -87,9 +104,16 @@ public class FactoryDatabase {
 		return list;
 	}
 
+	/**
+	 * 设置测试项的测试结果
+	 * @param index　测试项的下标
+	 * @param className　测试项的类名
+	 * @param state　测试项的测试结果
+     * @return 如果设置成功，这返回数据库的插入位置；否则返回-1;
+     */
 	public long setTestState(int index, String className, TestItemInfo.State state) {
 		long result = -1L;
-		int s = (state == TestItemInfo.State.UNKNOW ? 0 : (state == TestItemInfo.State.PASS ? 1 : 2));
+		int s = (state == TestItemInfo.State.UNKNOWN ? 0 : (state == TestItemInfo.State.PASS ? 1 : 2));
 		SQLiteDatabase sd = mFactoryDataHelper.getWritableDatabase();
 		String[] cols = new String[]{CLASS, STATE};
 		String[] selectionArgs = new String[]{className};
@@ -111,6 +135,9 @@ public class FactoryDatabase {
 		return result;
 	}
 
+	/**
+	 * 清除测试结果表的所有内容
+	 */
 	public void clearAllData() {
 		SQLiteDatabase sd = mFactoryDataHelper.getWritableDatabase();
 		sd.execSQL("delete from " + TEST_RESULT_TABLE + ";");

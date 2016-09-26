@@ -12,6 +12,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+/**
+ * 测试项的基类
+ */
 public abstract class BaseActivity extends Activity implements View.OnClickListener {
 
     protected static final int FLAG_HOMEKEY_DISPATCHED = 0x80000000;
@@ -20,15 +23,20 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
 
     protected Button mPassBtn;
     protected Button mFailBtn;
+    protected View mBottomButtonContainer;
 
     protected FactoryTestApplication mApplication;
 
+    // 是否是自动测试模式
     protected boolean mIsAutoTest;
+    // 自动测试时，自动测试下一个测试项的时间
     protected int mAutoTestDelayTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // 允许应用获取Home键事件
         getWindow().addFlags(FLAG_HOMEKEY_DISPATCHED);
+        // 全屏显示
         //getWindow().addFlags(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         super.onCreate(savedInstanceState);
 
@@ -50,7 +58,10 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            mApplication.resetAutoTest();
+            // 取消自动测试，结束测试
+            if (mIsAutoTest) {
+                mApplication.resetAutoTest();
+            }
             finish();
             return true;
         }
@@ -60,8 +71,11 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
         int keyCode = event.getKeyCode();
+        // 截断Home键和Back键事件
         if (keyCode == KeyEvent.KEYCODE_BACK || keyCode == KeyEvent.KEYCODE_HOME) {
-            Toast.makeText(this, R.string.disabled_key_tip, Toast.LENGTH_SHORT).show();
+            if (event.getAction() == KeyEvent.ACTION_UP) {
+                Toast.makeText(this, R.string.disabled_key_tip, Toast.LENGTH_SHORT).show();
+            }
             return true;
         }
         return super.dispatchKeyEvent(event);
@@ -69,6 +83,7 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+        // 移除MSG_PASS和MSG_FAIL消息
         if (mHandler.hasMessages(MSG_PASS)) {
             mHandler.removeMessages(MSG_PASS);
         }
@@ -76,17 +91,25 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
             mHandler.removeMessages(MSG_FAIL);
         }
         String className = this.getClass().getName();
+        // 获取测试项下标
         int index = mApplication.findTestIndex(className);
         Log.d(this, "onClick=>pass: " + mPassBtn.getId() + " fail: " + mFailBtn.getId() + " id: " + v.getId());
-        switch (v.getId()) {
-            case R.id.pass:
-                mApplication.setTestState(index, className, TestItemInfo.State.PASS);
-                break;
+        // 设置测试结果
+        if (index != -1) {
+            switch (v.getId()) {
+                case R.id.pass:
+                    mApplication.setTestState(index, className, TestItemInfo.State.PASS);
+                    break;
 
-            case R.id.fail:
-                mApplication.setTestState(index, className, TestItemInfo.State.FAIL);
-                break;
+                case R.id.fail:
+                    mApplication.setTestState(index, className, TestItemInfo.State.FAIL);
+                    break;
+            }
+        } else {
+            Log.e(this, "onClick=>class: " + className + " is not find index. index: " + index);
+            Toast.makeText(this, R.string.not_found_test_index, Toast.LENGTH_SHORT).show();
         }
+        // 如果是自动测试模式，则启动下一个测试
         if (mIsAutoTest) {
             mApplication.startNextTest();
         }
@@ -109,11 +132,15 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
     private void initViews() {
         mPassBtn = (Button) findViewById(R.id.pass);
         mFailBtn = (Button) findViewById(R.id.fail);
+        mBottomButtonContainer = findViewById(R.id.bottom_button_container);
 
         mPassBtn.setOnClickListener(this);
         mFailBtn.setOnClickListener(this);
     }
 
+    /**
+     * 用于自动测试，自动结束测试
+     */
     protected Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {

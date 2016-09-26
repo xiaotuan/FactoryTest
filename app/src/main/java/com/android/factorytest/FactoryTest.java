@@ -68,6 +68,9 @@ public class FactoryTest extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * 测试组按钮点击监听器
+     */
     public View.OnClickListener mTestClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -89,6 +92,9 @@ public class FactoryTest extends Activity {
         }
     };
 
+    /**
+     * 自动测试按钮点击监听器
+     */
     public View.OnClickListener mAutoTestClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -111,11 +117,16 @@ public class FactoryTest extends Activity {
     }
 
     private TestItemInfo.State getTestState(String test) {
-        return TestItemInfo.State.UNKNOW;
+        return TestItemInfo.State.UNKNOWN;
     }
 
+    /**
+     * 更新GridLayout视图
+     */
     private void updateItemContainer() {
+        // 首先清除GirdLayout中的View，防止重复添加测试组View
         mItemTestContainer.removeAllViews();
+        // 获取测试列表信息
         ArrayList<TestItemInfo> testList = mApplication.getTestList();
         int padding = mResources.getDimensionPixelSize(R.dimen.activity_vertical_margin);
         int height = mResources.getDimensionPixelSize(R.dimen.item_height);
@@ -128,30 +139,37 @@ public class FactoryTest extends Activity {
         Log.d(this, "updateItemContainer=>size: " + testList.size() + ", maxWidth: " + maxWidth);
         if (testList.size() > 0) {
             for (int i = 0; i < testList.size(); i++) {
+                // 获取测试组信息
                 TestItemInfo info = testList.get(i);
+                // 创建测试组View
                 TextView itemTest = new TextView(this);
                 itemTest.setText(info.getTitle());
                 itemTest.setTypeface(itemTest.getTypeface(), Typeface.BOLD);
                 itemTest.setTextSize(TypedValue.COMPLEX_UNIT_SP, mResources.getDimension(R.dimen.item_test_text_size));
                 itemTest.setGravity(Gravity.CENTER);
-                if (info.getState() == TestItemInfo.State.UNKNOW) {
+                // 通过测试组状态设置测试组View的颜色
+                if (info.getState() == TestItemInfo.State.UNKNOWN) {
                     itemTest.setTextColor(unknown);
                 } else if (info.getState() == TestItemInfo.State.FAIL) {
                     itemTest.setTextColor(fail);
                 } else if (info.getState() == TestItemInfo.State.PASS) {
                     itemTest.setTextColor(pass);
                 }
+                // 设置测试组View的背景图片
                 if (((i + 1) % 2) != 0) {
                     itemTest.setBackground(leftBackground);
                 } else {
                     itemTest.setBackground(rightBackground);
                 }
+                // 将测试组信息添加到View中，以便在点击View时获取测试组信息
                 itemTest.setTag(info);
                 itemTest.setOnClickListener(mTestClickListener);
+                // 设置布局属性
                 GridLayout.LayoutParams params = new GridLayout.LayoutParams();
                 params.setGravity(Gravity.CENTER);
                 params.width = maxWidth / 2;
                 params.height = height;
+                // 将测试组View添加到GridLayout中
                 mItemTestContainer.addView(itemTest, i, params);
             }
         }

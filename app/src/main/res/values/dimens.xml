@@ -18,6 +18,7 @@
     <dimen name="empty_view_text_size">24sp</dimen>
     <dimen name="system_test_item_title_test_size">28sp</dimen>
     <dimen name="test_item_result_text_size">20sp</dimen>
+    <dimen name="system_text_system_time_text_size">28sp</dimen>
 
 
 </resources>
