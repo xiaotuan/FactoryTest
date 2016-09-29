@@ -52,6 +52,8 @@ public class BacklitTest extends BaseActivity {
                         mTimes++;
                         mBacklitTestView.setBackgroundColor(mColors[mTimes % mColors.length]);
                         mSwitchHandler.sendEmptyMessageDelayed(MSG_SWTCH_COLOR,mSwitchColorDelayed);
+                    } else {
+                        mBacklitTestView.setBackgroundColor(getColor(R.color.white));
                     }
                     break;
             }

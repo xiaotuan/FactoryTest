@@ -248,6 +248,8 @@
         <activity
             android:name=".screentest.SingleFingerTouchTest"
             android:exported="false"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize|screenLayout|locale"
             android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

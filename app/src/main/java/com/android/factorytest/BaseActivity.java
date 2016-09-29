@@ -2,13 +2,16 @@ package com.android.factorytest;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.PowerManager;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -36,10 +39,11 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         // 允许应用获取Home键事件
         getWindow().addFlags(FLAG_HOMEKEY_DISPATCHED);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        getWindow().addFlags(android.view.WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
         // 全屏显示
         //getWindow().addFlags(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         super.onCreate(savedInstanceState);
-
         initActionBar();
         initValues();
     }
