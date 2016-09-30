@@ -17,20 +17,22 @@ public class SingleFingerTouchTest extends BaseActivity implements SingleTouchVi
     protected void onCreate(Bundle savedInstanceState) {
         getWindow().addFlags(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         getWindow().addFlags(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-        getWindow().addFlags(View. SYSTEM_UI_FLAG_LOW_PROFILE);
+        getWindow().addFlags(View.SYSTEM_UI_FLAG_LOW_PROFILE);
         super.onCreate(savedInstanceState);
         setTitle(R.string.single_finger_touch_test_title);
         setContentView(R.layout.single_finger_touch_test);
         getActionBar().hide();
         mTouchView = (SingleTouchView) findViewById(R.id.single_touch_view);
+        mTouchView.setCallBack(this);
         mIsPass = false;
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        mBottomButtonContainer.setVisibility(View.GONE);
-        mTouchView.setCallBack(this);
+        if (!mIsPass) {
+            mBottomButtonContainer.setVisibility(View.GONE);
+        }
     }
 
     @Override
