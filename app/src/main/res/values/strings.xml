@@ -1,4 +1,4 @@
-<resources>
+<resources  xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">FactoryTest</string>
 
     <string name="auto_test_title">Auto Test</string>
@@ -56,5 +56,7 @@
 
     <string name="lcd_test_view_start_tip">Touch Continue</string>
     <string name="lcd_test_view_end_tip">LCD test is complete</string>
+
+    <string name="ring_tip_title">"Now Playing: \n"<xliff:g id="file_path">%s</xliff:g></string>
 
 </resources>
