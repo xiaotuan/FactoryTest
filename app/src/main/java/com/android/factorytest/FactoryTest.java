@@ -145,7 +145,7 @@ public class FactoryTest extends Activity {
                 TextView itemTest = new TextView(this);
                 itemTest.setText(info.getTitle());
                 itemTest.setTypeface(itemTest.getTypeface(), Typeface.BOLD);
-                itemTest.setTextSize(TypedValue.COMPLEX_UNIT_SP, mResources.getDimension(R.dimen.item_test_text_size));
+                itemTest.setTextSize(TypedValue.COMPLEX_UNIT_SP, mResources.getInteger(R.integer.item_test_text_size));
                 itemTest.setGravity(Gravity.CENTER);
                 // 通过测试组状态设置测试组View的颜色
                 if (info.getState() == TestItemInfo.State.UNKNOWN) {

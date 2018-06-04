@@ -58,5 +58,7 @@
     <string name="lcd_test_view_end_tip">LCD test is complete</string>
 
     <string name="ring_tip_title">"Now Playing: \n"<xliff:g id="file_path">%s</xliff:g></string>
+    <string name="reset">Reset</string>
+    <string name="test_result">"Test Result: "</string>
 
 </resources>

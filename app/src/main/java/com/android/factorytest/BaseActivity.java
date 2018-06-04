@@ -15,6 +15,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.android.factorytest.keytest.KeyTest;
+
 /**
  * 测试项的基类
  */
@@ -75,6 +77,9 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
         int keyCode = event.getKeyCode();
+        if (this instanceof KeyTest) {
+            return super.dispatchKeyEvent(event);
+        }
         // 截断Home键和Back键事件
         if (keyCode == KeyEvent.KEYCODE_BACK || keyCode == KeyEvent.KEYCODE_HOME) {
             if (event.getAction() == KeyEvent.ACTION_UP) {

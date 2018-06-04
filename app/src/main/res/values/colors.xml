@@ -10,5 +10,9 @@
     <color name="blue">#ff0000ff</color>
     <color name="gray">#ff666666</color>
     <color name="orange">#ffff9900</color>
+    <color name="black">#ff000000</color>
+
+    <drawable name="green_bg">#009900</drawable>
+    <drawable name="red_bg">#dd0000</drawable>
 
 </resources>

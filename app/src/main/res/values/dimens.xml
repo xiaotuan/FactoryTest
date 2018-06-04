@@ -1,14 +1,12 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin">8dp</dimen>
+    <dimen name="activity_vertical_margin">4dp</dimen>
 
     <dimen name="frame_size">2px</dimen>
     <dimen name="item_height">64dp</dimen>
     <dimen name="auto_test_padding">8dp</dimen>
     <dimen name="auto_test_text_size">26sp</dimen>
-    <integer name="column_count">2</integer>
-    <dimen name="item_test_text_size">12sp</dimen>
 
     <dimen name="test_item_padding">8dp</dimen>
     <dimen name="test_result_padding">2dp</dimen>
@@ -19,6 +17,19 @@
     <dimen name="system_test_item_title_test_size">28sp</dimen>
     <dimen name="test_item_result_text_size">20sp</dimen>
     <dimen name="system_text_system_time_text_size">28sp</dimen>
+    <dimen name="bottom_button_height">96dp</dimen>
+    <dimen name="bottom_button_width">96dp</dimen>
+    <dimen name="key_test_item_height">48dp</dimen>
+    <dimen name="key_test_item_max_width">128dp</dimen>
+    <dimen name="key_test_item_column_space">4dp</dimen>
+    <dimen name="key_test_item_row_space">4dp</dimen>
+
+    <integer name="key_test_item_text_size">12</integer>
+    <integer name= "lcd_test_tip_text_size">24</integer>
+    <integer name="column_count">2</integer>
+    <integer name="item_test_text_size">21</integer>
+
+
 
 
 </resources>

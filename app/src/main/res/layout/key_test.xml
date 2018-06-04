@@ -1,103 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:scrollbars="none" >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/test_item_padding"
-                android:text="@string/android_version_title"
-                android:textColor="@color/green"
-                android:textSize="@dimen/system_test_item_title_test_size" />
-
-            <TextView
-                android:id="@+id/android_version"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/test_item_padding" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/test_item_padding"
-                android:text="@string/kernel_version_title"
-                android:textColor="@color/green"
-                android:textSize="@dimen/system_test_item_title_test_size" />
-
-            <TextView
-                android:id="@+id/kernal_version"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/test_item_padding" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/test_item_padding"
-                android:text="@string/system_version_title"
-                android:textColor="@color/green"
-                android:textSize="@dimen/system_test_item_title_test_size" />
-
-            <TextView
-                android:id="@+id/system_version"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/test_item_padding" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/test_item_padding"
-                android:text="@string/device_serial_number_title"
-                android:textColor="@color/green"
-                android:textSize="@dimen/system_test_item_title_test_size" />
-
-            <TextView
-                android:id="@+id/device_serial_number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/test_item_padding" />
-        </LinearLayout>
-    </ScrollView>
+    android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/bottom_button_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:gravity="bottom" >
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingBottom="@dimen/bottom_button_height">
 
-        <Button
-            android:id="@+id/pass"
+        <GridLayout
+            android:id="@+id/key_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/pass" />
+            android:columnCount="@integer/key_test_gridlayout_max_columns"
+            android:layout_centerInParent="true"/>
 
-        <Button
-            android:id="@+id/fail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/fail" />
     </LinearLayout>
 
-</LinearLayout>
+    <include
+        android:id="@+id/bottom_button_container"
+        layout="@layout/bottom_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottom_button_height"
+        android:layout_gravity="bottom" />
+
+</FrameLayout>

@@ -11,8 +11,11 @@ import android.os.Looper;
 import android.os.Message;
 import android.telecom.Call;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.android.factorytest.BaseActivity;
 import com.android.factorytest.Log;
@@ -27,11 +30,11 @@ public class LcdTest extends BaseActivity implements LCDTestView.CallBack {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        getWindow().addFlags(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        getWindow().addFlags(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lcd_test);
         mIsFinish = false;
+        getActionBar().hide();
         mNextColorDelayed = getResources().getInteger(R.integer.lcd_test_next_color_delayed);
     }
 
@@ -88,6 +91,7 @@ public class LcdTest extends BaseActivity implements LCDTestView.CallBack {
     private Runnable mShowBottomButtonRunnable = new Runnable() {
         @Override
         public void run() {
+            getActionBar().show();
             mBottomButtonContainer.setVisibility(View.VISIBLE);
         }
     };
@@ -126,7 +130,8 @@ class LCDTestView extends View {
         mPaint.setAntiAlias(true);
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setColor(0xff000000);
-        mPaint.setTextSize(28);
+        int size = (int)(res.getDisplayMetrics().scaledDensity * res.getInteger(R.integer.lcd_test_tip_text_size) + 0.5f);
+        mPaint.setTextSize(size);
         mStartTip = context.getString(R.string.lcd_test_view_start_tip);
         mEndTip = context.getString(R.string.lcd_test_view_end_tip);
         mTestColors = res.getIntArray(R.array.lcd_test_colors);

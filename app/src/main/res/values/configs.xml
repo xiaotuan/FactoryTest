@@ -187,11 +187,11 @@
     </integer-array>
 
     <!--    LCD　测试时切换屏幕颜色的延迟时间，单位：毫秒    -->
-    <integer name="lcd_test_next_color_delayed">5000</integer>
+    <integer name="lcd_test_next_color_delayed">3000</integer>
     <!--    LCD 测试时隐藏操作提示信息的延迟时间，　单位：毫秒   -->
     <integer name="lcd_test_hide_start_tip_delayed">3000</integer>
     <!--    LCD 测试时显示结束测试提示信息的延迟时间，单位：毫秒    -->
-    <integer name="lcd_test_show_end_tip_delayed">5000</integer>
+    <integer name="lcd_test_show_end_tip_delayed">3000</integer>
 
     <!--    背光测试颜色数组    -->
     <integer-array name="backlit_test_colors">
@@ -202,5 +202,26 @@
     <integer name="backlit_test_switch_color_delayed">1000</integer>
     <!--    背光测试切换次数    -->
     <integer name="backlit_test_switch_times">4</integer>
+
+    <!-- 按键测试中按键的名称数组 -->
+    <string-array name="key_names">
+        <item>Home</item>
+        <item>Menu</item>
+        <item>Back</item>
+        <item>Volume Up</item>
+        <item>Volume Down</item>
+    </string-array>
+
+    <!--    按键测试中按键值，该值的顺序必须与上面的按键名称一一对应    -->
+    <integer-array name="key_codes">
+        <item>3</item>
+        <item>82</item>
+        <item>4</item>
+        <item>24</item>
+        <item>25</item>
+    </integer-array>
+
+    <!-- 按键测试最多显示多少列 -->
+    <integer name="key_test_gridlayout_max_columns">3</integer>
 
 </resources>
